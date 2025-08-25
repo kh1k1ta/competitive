@@ -21,6 +21,8 @@ using vll=vc<ll>;
 using vvi=vc<vi>;
 using vvll=vc<vll>;
 
+#define rep1(n) for(ll i=0; i<(ll)(n); ++i)
+
 template<typename T>
 ostream& operator<<(ostream& os, const vc<T>& vec) {
     for (const auto& val : vec) {
@@ -43,11 +45,19 @@ ostream& operator<<(ostream& os, const vvvc<T>& tensor) {
     return os;
 }  
 
-ll dig_sum(ll r, ll n){
-    ll count = 0;
-    while(n>0){
-        count += n%r;
-        n /= r;
+int main(void){
+    int A, B, C, X;
+    cin >> A >> B >> C >> X;
+    int count = 0;
+    for(int i=0; i<=A; ++i){
+        for(int j=0; j<=B; ++j){
+            for(int k=0; k<=C; ++k){
+                if(X == 500*i + 100*j +50*k) count++;
+            }
+        }
     }
-    return count;
+    cout << count << endl;
+
+    return 0;
 }
+

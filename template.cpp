@@ -43,11 +43,6 @@ ostream& operator<<(ostream& os, const vvvc<T>& tensor) {
     return os;
 }  
 
-ll dig_sum(ll r, ll n){
-    ll count = 0;
-    while(n>0){
-        count += n%r;
-        n /= r;
-    }
-    return count;
+int main(void){
+    return 0;
 }

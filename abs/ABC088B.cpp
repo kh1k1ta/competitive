@@ -21,6 +21,8 @@ using vll=vc<ll>;
 using vvi=vc<vi>;
 using vvll=vc<vll>;
 
+#define rep1(n) for(ll i=0; i<(ll)(n); ++i)
+
 template<typename T>
 ostream& operator<<(ostream& os, const vc<T>& vec) {
     for (const auto& val : vec) {
@@ -51,3 +53,21 @@ ll dig_sum(ll r, ll n){
     }
     return count;
 }
+
+
+int main(void){
+    int N;
+    cin >> N;
+    vi A(N);
+    int count = 0;
+    for(auto& a : A) cin >> a;
+    sort(A.rbegin(), A.rend());
+    for(int i=0; i<N-N%2; i=i+2){
+        count += A[i] - A[i+1];
+    }
+    if(A.size()%2 == 1) count += A[N-1];
+    cout << count << endl;
+
+    return 0;
+}
+

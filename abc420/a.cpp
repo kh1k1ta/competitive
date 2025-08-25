@@ -51,3 +51,14 @@ ll dig_sum(ll r, ll n){
     }
     return count;
 }
+
+
+int main(void){
+    int X, Y;
+    cin >> X >> Y;
+    if((X + Y)%12 == 0){
+        cout << 12 << endl;
+    }
+    else cout << (X + Y)%12 << endl;
+    return 0;
+}

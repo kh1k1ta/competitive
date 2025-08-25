@@ -21,6 +21,8 @@ using vll=vc<ll>;
 using vvi=vc<vi>;
 using vvll=vc<vll>;
 
+#define rep1(n) for(ll i=0; i<(ll)(n); ++i)
+
 template<typename T>
 ostream& operator<<(ostream& os, const vc<T>& vec) {
     for (const auto& val : vec) {
@@ -50,4 +52,32 @@ ll dig_sum(ll r, ll n){
         n /= r;
     }
     return count;
+}
+
+
+int main(void){
+    ll N, Y;
+    cin >> N >> Y;
+    Y /= 1000;
+    int A=0, B=0, C=0;
+    string ans;
+    // cout << (Y >= N) << endl;
+    // cout << (N >= Y / 10 + Y%10/5 + Y%5) << endl;
+    for(int i=0; i<=N; ++i){
+        for(int j=0; j<=N; ++j){
+            int k = N - i - j;
+            if(k >= 0){
+                if(10*i + 5*j + k == Y){
+                    cout << i << " " << j << " " << k << endl;
+                    return 0;
+                }
+            }
+            
+        }
+    }
+    cout << "-1 -1 -1" << endl;
+
+    
+    
+    return 0;
 }

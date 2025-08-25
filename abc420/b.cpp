@@ -51,3 +51,50 @@ ll dig_sum(ll r, ll n){
     }
     return count;
 }
+
+int main(void){
+    int N, M;
+    cin >> N >> M;
+    vc<string> S(N);
+    vi score(N);
+    vi ans;
+    for(auto& s : S) cin >> s;
+    for(int i=0; i<M; ++i){
+        int sum = 0;
+        for(int j=0; j<N; ++j){
+            sum += int(S[j][i] - '0');
+        }
+        // cout << "sum: " << sum << endl;
+
+        if(sum == 0 || sum == N){
+            for(auto& s : score) s++;
+        } 
+        else if(sum > N/2){
+            for(int j=0; j<N; ++j){
+                if(S[j][i] == '0'){
+                    score[j]++;
+                    // cout << "0, minority: " << j << endl;
+                }
+            }
+        } 
+        else {
+            for(int j=0; j<N; ++j){
+                if(S[j][i] == '1'){
+                    score[j]++;
+                    // cout << "1, minority: " << j << endl;
+                } 
+            }    
+        }
+        
+    }
+
+    int max = 0;
+    for(auto& s : score) if(s > max) max = s;
+    for(int i=0; i<N; ++i){
+        if(score[i] == max) ans.pb(i+1);
+    }
+    // cout << "score: " << score << endl;
+    cout << ans << endl;
+
+    return 0;
+}

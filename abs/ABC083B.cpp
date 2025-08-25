@@ -21,6 +21,8 @@ using vll=vc<ll>;
 using vvi=vc<vi>;
 using vvll=vc<vll>;
 
+#define rep1(n) for(ll i=0; i<(ll)(n); ++i)
+
 template<typename T>
 ostream& operator<<(ostream& os, const vc<T>& vec) {
     for (const auto& val : vec) {
@@ -50,4 +52,18 @@ ll dig_sum(ll r, ll n){
         n /= r;
     }
     return count;
+}
+
+int main(void){
+    int N, A, B;
+    cin >> N >> A >> B;
+    int sum = 0;
+    for(int i=1; i<=N; ++i){
+        if(A <= dig_sum(10, i) && dig_sum(10, i) <= B){
+            sum += i;
+        }
+    }
+    cout << sum << endl;
+    
+    return 0;
 }

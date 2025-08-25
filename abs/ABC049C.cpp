@@ -21,6 +21,8 @@ using vll=vc<ll>;
 using vvi=vc<vi>;
 using vvll=vc<vll>;
 
+#define rep1(n) for(ll i=0; i<(ll)(n); ++i)
+
 template<typename T>
 ostream& operator<<(ostream& os, const vc<T>& vec) {
     for (const auto& val : vec) {
@@ -50,4 +52,23 @@ ll dig_sum(ll r, ll n){
         n /= r;
     }
     return count;
+}
+
+
+int main(void){
+    string S;
+    cin >> S;
+    while(true){
+        cout << "test" << endl;
+        if(S.size() == 0) break;
+        else if(S.substr(S.size()-5) == "dream") S.erase(S.end()-5, S.end());
+        else if(S.substr(S.size()-7) == "dreamer") S.erase(S.end()-7, S.end());
+        else if(S.substr(S.size()-5) == "erase") S.erase(S.end()-5, S.end());
+        else if(S.substr(S.size()-6) == "eraser") S.erase(S.end()-6, S.end());
+        else break;
+    }
+    if(S.size() == 0) cout << "YES" << endl;
+    else cout << "NO" << endl;
+
+    return 0;
 }

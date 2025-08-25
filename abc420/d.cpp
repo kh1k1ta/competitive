@@ -51,3 +51,8 @@ ll dig_sum(ll r, ll n){
     }
     return count;
 }
+
+int main(void){
+    
+    return 0;
+}
